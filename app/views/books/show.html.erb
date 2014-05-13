@@ -1,0 +1,31 @@
+<h1>Books details</h1>
+<%= link_to "Back to book list", "/books" %>
+<hr>
+
+<% book_id = params["id"] %>
+<% book = Book.read(book_id) %>
+
+<h2>Title: <%= book.title %></h2>
+<h2>Author: <%= book.author %></h2>
+<h2>Price: $<%= book.price %></h2>
+
+<% if book.reviewed? %>
+    <h2>Rating: 
+        <% select_reviews = Review.read(:book_id => book.id) %>
+        <% total_rating = 0 %>
+
+        <% select_reviews.each do |review| %>
+            <% total_rating = total_rating + review.rating %>
+        <% end %>
+
+        <% total_rating = total_rating * 10 / select_reviews.count %>
+        <%= total_rating/10 %>.<%= total_rating - total_rating/10*10 %>
+    </h2>
+    <ul>
+        <% select_reviews.each do |review| %>
+            <li><%= review.caption %></li>
+        <% end %>
+    </ul>
+<% else %>
+<h2>Rating not available</h2>
+<% end %>

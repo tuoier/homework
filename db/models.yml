@@ -1,3 +1,14 @@
+Book:
+  - title: string
+  - author: string
+  - price: integer
+  - reviewed: boolean
+
+Review:
+  - book_id: integer
+  - rating: integer
+  - caption: string
+
 # Example table for a typical Book model.
 #
 # Book:
@@ -10,3 +21,9 @@
 # Follow the syntax exactly (colons and spacing are important).
 # Column type choices are: string, text, integer, and boolean.
 # You can have as many models as you want in this file.
+
+
+# A book has a title, author name, price, and a list of reviews.
+# An author can write multiple books during their lifetime.
+# A book review has a star rating from 1 to 5 and a short caption.
+# The book with the highest average rating is considered to be the Editor's Pick.

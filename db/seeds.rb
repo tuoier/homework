@@ -1,7 +1,33 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
+Book.delete_all
+Book.create("title" => "Orphan Train", "author" => "Christina Baker Kline", "price" => "26", "reviewed" => "True")
+Book.create("title" => "Shadow Spell", "author" => "Nora Roberts", "price" => "15", "reviewed" => "True")
+Book.create("title" => "The Alchemist", "author" => "Paulo Coelho", "price" => "12", "reviewed" => "True")
+Book.create("title" => "King And Maxwell", "author" => "David Baldacci", "price" => "35", "reviewed" => "False")
+Book.create("title" => "Whiskey Beach", "author" => "Nora Roberts", "price" => "22", "reviewed" => "False")
+Book.create("title" => "A Game Of Thrones", "author" => "George R R Martin", "price" => "24", "reviewed" => "False")
+Book.create("title" => "Americanah", "author" => "Chimamanda Ngozi Adichie", "price" => "20", "reviewed" => "False")
+Book.create("title" => "Me Before You", "author" => "Jojo Moyes", "price" => "18", "reviewed" => "False")
+Book.create("title" => "The Burgess Boys", "author" => "Elizabeth Strout", "price" => "15", "reviewed" => "False")
+Book.create("title" => "The Interestings", "author" => "Meg Wolitzer", "price" => "27", "reviewed" => "False")
+Book.create("title" => "Fly Away", "author" => "Kristin Hannah", "price" => "23", "reviewed" => "False")
+Book.create("title" => "Beautiful Ruins", "author" => "Jess Walter", "price" => "14", "reviewed" => "False")
+Book.create("title" => "The Light Between Oceans", "author" => "M L Stedman", "price" => "25", "reviewed" => "False")
+Book.create("title" => "A Tale For The Time Being", "author" => "Ruth Ozeki", "price" => "34", "reviewed" => "False")
+Book.create("title" => "Paris", "author" => "Edward Rutherfurd", "price" => "38", "reviewed" => "False")
+Book.create("title" => "Beautiful Day", "author" => "Elin Hilderbrand", "price" => "16", "reviewed" => "False")
+Book.create("title" => "Dark Places", "author" => "Gillian Flynn", "price" => "15", "reviewed" => "False")
+Book.create("title" => "Four Friends", "author" => "Ron Carr", "price" => "20", "reviewed" => "False")
+Book.create("title" => "The White Princess", "author" => "Philippa Gregory", "price" => "24", "reviewed" => "False")
+
+Review.delete_all
+Review.create("book_id" => "Orphan Train", "rating" => "5", "caption" => "Riveting!")
+Review.create("book_id" => "Orphan Train", "rating" => "2", "caption" => "About as dull as you can get.")
+Review.create("book_id" => "Orphan Train", "rating" => "3", "caption" => "Not bad.")
+Review.create("book_id" => "Shadow Spell", "rating" => "4", "caption" => "Great book, and not too many pages.")
+Review.create("book_id" => "Shadow Spell", "rating" => "4", "caption" => "Excellent font and margins.  Story wasn't bad, either.")
+Review.create("book_id" => "Shadow Spell", "rating" => "4", "caption" => "Worth reading when there isn't a hockey game on.")
+Review.create("book_id" => "Shadow Spell", "rating" => "1", "caption" => "Didn't understand it at all.")
+Review.create("book_id" => "The Alchemist", "rating" => "2", "caption" => "I thought this was about how to make gold?")
+Review.create("book_id" => "The Alchemist", "rating" => "4", "caption" => "Suspensful plot, good characters.")
+Review.create("book_id" => "The Alchemist", "rating" => "5", "caption" => "Perfect.  A work of art.")
+Review.create("book_id" => "The Alchemist", "rating" => "3", "caption" => "Kind of confusing.")

@@ -1,0 +1,49 @@
+<h1>Books list</h1>
+
+<% all_books = Book.read %>
+<hr>
+<!-- begin calculation of Editor's pick -->
+<% highest = 0 %>
+<% picked_id = 0 %>
+<% all_books.each do |book| %>
+    <% if book.reviewed? %>
+        <% select_reviews = Review.read(:book_id => book.id) %>
+        <% total_rating = 0 %>
+            <% select_reviews.each do |review| %>
+           <% total_rating = total_rating + review.rating %>
+           <% end %>
+        <% avg_rating = total_rating * 10 / select_reviews.count %>
+        <% if highest < avg_rating %>
+            <% highest = avg_rating %>
+            <% picked_id = book.id %>
+        <% end %>
+    <% end %>
+<% end %>
+<!-- end calculation of Editor's pick -->
+<h2>Editor's pick: <a href="/books/<%= picked_id %>"><%= Book.read(:id => picked_id).title %></a></h2>
+<ul>
+
+  <% all_books.each do |book| %>
+
+    <li>
+      <a href="/books/<%= book.id %>"><strong><%= book.title %>
+      </strong></a>
+
+      <% if book.reviewed? %>, average rating is 
+      <b>
+        <% select_reviews = Review.read(:book_id => book.id) %>
+        <% total_rating = 0 %>
+
+        <% select_reviews.each do |review| %>
+          <% total_rating = total_rating + review.rating %>
+        <% end %>
+        <% total_rating = total_rating * 10 / select_reviews.count %>
+        <%= total_rating/10 %>.<%= total_rating - total_rating/10*10 %>
+        </b>
+        <% else %> (Avg. rating n/a)
+      <% end %>
+    </li>
+
+  <% end %>
+
+</ul>
